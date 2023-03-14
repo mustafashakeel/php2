@@ -5,33 +5,49 @@ class Books
 
     var $price;
     var $title;
-
-    function setPrice($price)
+    function __construct($price, $title)
     {
         $this->price = $price;
+        $this->title = $title;
     }
+
+
     function getPrice()
     {
         echo $this->price . "<br />";
     }
-    function setTitle($title)
-    {
-        $this->title = $title;
-    }
+
     function getTitle()
     {
         echo $this->title . "<br />";
     }
 }
 
-$javascript = new Books;
-$javascript->setPrice(10);
+$javascript = new Books(10, "Javasript");
 $javascript->getPrice();
-$javascript->setTitle("JavaScript");
 $javascript->getTitle();
 
-$physics = new Books;
-$physics->setPrice(15);
+$physics = new Books(15, "Physics");
 $physics->getPrice();
-$physics->setTitle("Physics");
 $physics->getTitle();
+
+
+
+class Subject extends Books
+{
+
+    var $subject;
+    function setSubject($subject)
+    {
+        $this->subject = $subject;
+    }
+    function getSubject()
+    {
+        echo $this->subject . "<br />";
+    }
+}
+
+$math = new Subject(20, "Math 101 ");
+$math->setSubject("Mathematics");
+$math->getSubject();
+$math->getPrice();
